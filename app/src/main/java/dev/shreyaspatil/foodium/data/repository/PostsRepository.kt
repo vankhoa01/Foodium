@@ -6,20 +6,16 @@ import dev.shreyaspatil.foodium.data.remote.api.FoodiumService
 import dev.shreyaspatil.foodium.model.Post
 import dev.shreyaspatil.foodium.utils.State
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
 import retrofit2.Response
-import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * Singleton repository for fetching data from remote and storing it in database
  * for offline capability. This is Single source of data.
  */
-@ExperimentalCoroutinesApi
-@Singleton
-class PostsRepository @Inject constructor(
+
+class PostsRepository constructor(
     private val postsDao: PostsDao,
     private val foodiumService: FoodiumService
 ) {

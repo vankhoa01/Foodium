@@ -3,7 +3,6 @@ package dev.shreyaspatil.foodium.data.repository
 import androidx.annotation.MainThread
 import androidx.annotation.WorkerThread
 import dev.shreyaspatil.foodium.utils.State
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*
 import retrofit2.Response
 
@@ -13,7 +12,6 @@ import retrofit2.Response
  * [RESULT] represents the type for database.
  * [REQUEST] represents the type for network.
  */
-@ExperimentalCoroutinesApi
 abstract class NetworkBoundRepository<RESULT, REQUEST> {
 
     fun asFlow() = flow<State<RESULT>> {

@@ -6,11 +6,9 @@ import androidx.lifecycle.Observer
 import coil.api.load
 import dev.shreyaspatil.foodium.databinding.ActivityPostDetailsBinding
 import dev.shreyaspatil.foodium.ui.base.BaseActivity
-import dev.shreyaspatil.foodium.utils.viewModelOf
 import kotlinx.android.synthetic.main.activity_post_details.*
-import kotlinx.coroutines.ExperimentalCoroutinesApi
+import org.koin.android.viewmodel.ext.android.viewModel
 
-@ExperimentalCoroutinesApi
 class PostDetailsActivity : BaseActivity<PostDetailsViewModel, ActivityPostDetailsBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +43,7 @@ class PostDetailsActivity : BaseActivity<PostDetailsViewModel, ActivityPostDetai
     override fun getViewBinding(): ActivityPostDetailsBinding =
         ActivityPostDetailsBinding.inflate(layoutInflater)
 
-    override fun getViewModel() = viewModelOf<PostDetailsViewModel>(mViewModelProvider)
+    override val mViewModel: PostDetailsViewModel by viewModel()
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {

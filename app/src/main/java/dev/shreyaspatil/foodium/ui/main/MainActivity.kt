@@ -20,9 +20,8 @@ import dev.shreyaspatil.foodium.ui.base.BaseActivity
 import dev.shreyaspatil.foodium.ui.details.PostDetailsActivity
 import dev.shreyaspatil.foodium.ui.main.adapter.PostListAdapter
 import dev.shreyaspatil.foodium.utils.*
-import kotlinx.coroutines.ExperimentalCoroutinesApi
+import org.koin.android.viewmodel.ext.android.viewModel
 
-@ExperimentalCoroutinesApi
 class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(),
     PostListAdapter.OnItemClickListener {
 
@@ -159,7 +158,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(),
 
     override fun getViewBinding(): ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
 
-    override fun getViewModel() = viewModelOf<MainViewModel>(mViewModelProvider)
+    override val mViewModel: MainViewModel by viewModel()
 
     companion object {
         const val ANIMATION_DURATION = 1000.toLong()

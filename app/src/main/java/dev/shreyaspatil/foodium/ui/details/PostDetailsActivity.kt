@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.lifecycle.Observer
 import coil.api.load
+import dev.shreyaspatil.foodium.R
 import dev.shreyaspatil.foodium.databinding.ActivityPostDetailsBinding
 import dev.shreyaspatil.foodium.ui.base.BaseActivity
-import kotlinx.android.synthetic.main.activity_post_details.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class PostDetailsActivity : BaseActivity<PostDetailsViewModel, ActivityPostDetailsBinding>() {
@@ -16,7 +16,7 @@ class PostDetailsActivity : BaseActivity<PostDetailsViewModel, ActivityPostDetai
 
         setContentView(mViewBinding.root)
 
-        setSupportActionBar(toolbar)
+        setSupportActionBar(mViewBinding.root.findViewById(R.id.toolbar))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val postId = intent.extras?.getInt(POST_ID)
